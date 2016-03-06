@@ -16,7 +16,9 @@ int main(){
 	int *newarray=sortedArrayInsertNumber(arr, 3, 3);
 	printf("%d %d %d %d", newarray[0], newarray[1], newarray[2],newarray[3]);
 	*/
-
-
+	int Arr1[1] = { 1 }, lessCount, moreCount;
+	studentsCount(Arr1, 1, 1, &lessCount, &moreCount);
+	printf("%d , %d",lessCount,moreCount);
+	getchar();
 	return 0;
 }

@@ -20,6 +20,42 @@ struct student {
 	int score;
 };
 
+
+//Sorting using quickSort in descending order
+void Sort(struct student *arr, int left, int right)
+{
+
+	struct student pivot = arr[right];
+	int  leftIndex = left, rightIndex = right;
+
+	while (leftIndex<rightIndex){
+		while (arr[leftIndex].score > pivot.score && leftIndex < rightIndex){ leftIndex++; }
+		if (leftIndex != rightIndex)  arr[rightIndex] = arr[leftIndex];
+
+		while (arr[rightIndex].score <= pivot.score && leftIndex < rightIndex){ rightIndex--; }
+		if (leftIndex != rightIndex) arr[leftIndex] = arr[rightIndex];
+
+	}
+
+	arr[leftIndex] = pivot;
+
+	int	pivotIndex = leftIndex;
+	if (left<pivotIndex)
+		Sort(arr, left, pivotIndex - 1);
+	if (pivotIndex<right)
+		Sort(arr, pivotIndex + 1, right);
+
+}
+
+
 void * scoresDescendingSort(struct student *students, int len) {
-	return NULL;
+
+	if (students == NULL || len < 1) return NULL;
+
+	else
+	{
+		Sort(students, 0, len - 1);
+	}
+
+	return students ;
 }
